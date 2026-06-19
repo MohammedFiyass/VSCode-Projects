@@ -1,0 +1,18 @@
+#create playbook to list OS version and hostname 
+---
+- name: Gather OS version and hostname
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Gather OS version
+      command: cat /etc/os-release
+      register: os_version
+
+    - name: Gather hostname
+      command: hostname
+      register: hostname
+
+    - name: Display OS version and hostname
+      debug:
+        msg: "OS Version: {{ os_version.stdout }}, Hostname: {{ hostname.stdout }}"
