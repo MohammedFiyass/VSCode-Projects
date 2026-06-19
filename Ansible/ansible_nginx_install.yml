@@ -1,0 +1,18 @@
+#create ansible playbook to install nginx and start the services in redhat linux
+#first file
+---
+- name: Install and start Nginx on RedHat Linux
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Nginx
+      yum:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
