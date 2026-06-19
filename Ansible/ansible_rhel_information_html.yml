@@ -61,7 +61,6 @@
         flat: yes
 
     - name: Send email
-      delegate_to: localhost
       mail:
         host: "{{ smtp_host }}"
         port: "{{ smtp_port }}"
@@ -79,3 +78,4 @@
           Host: {{ inventory_hostname }}
         attach:
           - "/tmp/system_report_{{ inventory_hostname }}.txt"
+      delegate_to: localhost
