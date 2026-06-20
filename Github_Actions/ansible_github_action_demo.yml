@@ -4,7 +4,7 @@
   become: true
   gather_facts: false
   tasks:
-    - name: Create file with 'hello world version 2.0'
+    - name: Create file with 'hello world version 2.0 '
       ansible.builtin.copy:
         dest: /tmp/hello_world_version_2.0.txt
         content: "hello world version 2.0\n"
