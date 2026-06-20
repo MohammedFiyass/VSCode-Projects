@@ -1,4 +1,4 @@
-name: Trigger AWX Job
+name: Trigger AWX Jobs
 
 on:
   push:
