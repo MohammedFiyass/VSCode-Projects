@@ -3,7 +3,7 @@ name: Trigger AWX Job
 on:
   push:
     branches:
-      - main
+      - new-branch
 
 jobs:
   trigger-awx:
