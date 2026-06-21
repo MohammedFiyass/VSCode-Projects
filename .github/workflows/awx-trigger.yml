@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - new-branch
+    paths:
+      - Github_Actions/ansible_github_action_demo.yml
 
 jobs:
   trigger-awx:
