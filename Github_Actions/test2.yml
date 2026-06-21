@@ -1,0 +1,23 @@
+# test playbook to display Hello new world
+---
+- name: Display Hello new world
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Create file with 'hello new world version 1.0 '
+      ansible.builtin.copy:
+        dest: /tmp/hello_new_world_version_1.0.txt
+        content: "hello new world version 1.0\n"
+        owner: root
+        mode: '0644'
+
+    - name: Read file content
+      ansible.builtin.command: cat /tmp/hello_new_world_version_1.0.txt
+      register: file_output
+      changed_when: false
+
+    - name: Show file content
+      ansible.builtin.debug:
+        msg: "{{ file_output.stdout }}"
+        
