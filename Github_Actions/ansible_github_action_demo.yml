@@ -4,15 +4,15 @@
   become: true
   gather_facts: false
   tasks:
-    - name: Create file with 'hello world version 3.0 '
+    - name: Create file with 'hello world version 1.0 '
       ansible.builtin.copy:
-        dest: /tmp/hello_world_version_3.0.txt
-        content: "hello world version 3.0\n"
+        dest: /tmp/hello_world_version_1.0.txt
+        content: "hello world version 1.0\n"
         owner: root
         mode: '0644'
 
     - name: Read file content
-      ansible.builtin.command: cat /tmp/hello_world_version_3.0.txt
+      ansible.builtin.command: cat /tmp/hello_world_version_1.0.txt
       register: file_output
       changed_when: false
 
