@@ -1,0 +1,19 @@
+name: Trigger AWX Jobs for Prod
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Github_Actions/ansible_github_action_demo.yml
+
+jobs:
+  trigger-awx:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Launch AWX Job Template
+        run: |
+          curl -X POST "${{ secrets.AWX_URL }}/api/v2/job_templates/16/launch/" \
+          -H "Authorization: Bearer ${{ secrets.AWX_TOKEN }}" \
+          -H "Content-Type: application/json"
